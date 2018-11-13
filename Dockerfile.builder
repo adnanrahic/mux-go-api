@@ -9,11 +9,9 @@ RUN go get -d -v \
   && go install -v \
   && go build
 
-
 ##
 
-
 FROM alpine:3.8
-COPY --from=builder /go/src/api/api /go/src/api/
+COPY --from=builder /go/bin/api /go/bin/
 EXPOSE 3000
-CMD ["/go/src/api/api"]
+CMD ["/go/bin/api"]
